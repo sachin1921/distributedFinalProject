@@ -23,7 +23,7 @@ Yin Zhou | 100314426
 
 ### Program Run Steps
 1. Open the document Contract from the app directory in vs code extention 
-2. Navigate to block chain extention 
+2. naviage to block chain extention 
 3. Under the fabric enviroment tab select `local fabric` 
 * select doucmentContract under FABRIC ENVIRONMENT > Smart Contract > Install > +Install
 * select just installed documentContract  nder FABRIC ENVIRONMENT > Smart Contract > Instantiated > +Instantiate
