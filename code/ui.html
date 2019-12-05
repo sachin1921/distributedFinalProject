@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<title>SAFE BLOCK</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+
+
+    
+}*/
+.textarea{
+  position: fixed;
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+
+/*single input textbox for key*/
+.item-text {
+    display: grid;
+    flex-flow: column;
+    justify-content: flex-start;
+    flex: 0  auto;
+    padding: 2rem 2rem;
+    box-sizing: border-box;
+    background-color: AliceBlue;
+  }
+body {background-color: #1b283a;}
+
+.container {
+  padding: 1rem 1rem;
+  max-width: 80%;
+  min-width: 320px;
+  margin: 0 auto;
+}
+
+ul {
+  margin: 3;
+  padding: 0;
+  list-style: none;
+
+}
+li {
+  background: #fff;
+  color: #202020;
+  border: 1px solid #ccc;
+  opacity: 0.9;
+}
+
+li:hover{
+box-shadow: 1px 2px 3px 0px rgba(25,25,25,0.6);
+opacity: 1;
+transition:all 0.5s ease;  
+}
+
+
+h1 {
+  width:50%;
+  height: 20%;
+  padding-right: 100px;
+  background-color: Black;
+  text-align: center;
+  margin-left: 25%;
+  color: #fff;
+  padding: 1.25rem;
+  
+}
+h2 {
+  margin: 0;
+  text-align: center;
+}
+p {
+  color: #555; line-height: 1.5;
+}
+
+
+.item-list {
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: space-between;
+  }
+
+
+/*to give space below the containers*/
+.item {
+  flex: 100%;
+  margin: 0 0 1.25rem;
+}
+
+.item { 
+  flex: 0 0 calc( 50% - 1.25rem / 2 );
+  margin-left: 1.25rem;
+}
+ 
+ .item:nth-child(odd){ 
+   margin-left: 0;
+ }  
+  
+
+</style>
+
+
+<body>
+
+<form action="/solve" method="post">
+  <fieldset>
+  <h1> SafeBlock - Enter Information </h1>
+  <div class="container">
+
+    <ul class="item-list">
+      <li class="item item1">
+  <textarea rows="3" cols="78" placeholder="Enter Information" style="margin-top: 5px; margin-left: 1px; "></textarea>      
+        <div class="item-text">
+          <h2>Member 1</h2>
+          <input type="text" id="key"  placeholder="Key" name="key"><br>
+
+        <div>
+          <input type="submit" value="Submit" class="w3-button w3-block w3-dark-grey" placeholder="Read" />
+      </li>
+
+      <li class="item item2">
+  <textarea rows="3" cols="78" placeholder="Enter Information"  style="margin-top: 5px; margin-left: 1px; "></textarea>      
+        <div class="item-text">
+          <h2>Member 2</h2>
+          <input type="text" id="key"  placeholder="Key" name="key"><br>
+             <div>
+          <input type="submit" value="Submit" class="w3-button w3-block w3-dark-grey" placeholder="Read" />  <br>
+
+      </li>
+      <li class="item item3">
+  <textarea rows="3" cols="78" placeholder="Enter Information"  style="margin-top: 5px; margin-left: 1px; "></textarea>      
+        <div class="item-text">
+          <h2>Member 3</h2>
+          <input type="text" id="key"  placeholder="Key" name="key"><br>
+      <div>
+          <input type="submit" value="Submit" class="w3-button w3-block w3-dark-grey" placeholder="Read" />
+
+      </li>
+      <li class="item item4">
+  <textarea rows="3" cols="78" placeholder="Enter Information" style="margin-top: 5px; margin-left: 1px; "></textarea>      
+        <div class="item-text">
+          <h2>Member 4</h2>
+          <input type="text" id="key"  placeholder="Key" name="key"><br>
+              <div>
+          <input type="submit" value="Submit" class="w3-button w3-block w3-dark-grey" placeholder="Read" />
+
+      </li>
+    </ul>
+  </div>
+        
+  </div>
+  </fieldset>
+</form>
+
+
+</body>
+</html>
+
+

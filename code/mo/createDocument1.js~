@@ -1,0 +1,92 @@
+'use strict';
+
+const fs = require('fs');
+const { FileSystemWallet, Gateway } = require('fabric-network');
+
+//Import local fabric wallet
+const wallet = new FileSystemWallet('/home/user/.fabric-vscode/wallets/local_fabric_wallet');
+async function main() {
+
+    // Gateway to access the local fabric network 
+    const gateway = new Gateway();
+
+    try {
+
+	//The user name below must match the idetntiy created via ibm blockchain platform 
+	//a copy of these identies is included in .localfabric wallet. However, it's adviced to regenerate them
+        const userName = 'mo';
+        
+        // File path for connections 
+        let fpath = fs.readFileSync('/home/user/Desktop/blckChainAPp/connection.json', 'utf8');
+        let connectionProfile = JSON.parse(fpath);
+
+	//Connect to gateway via specified parameters	
+	let connectionOptions = {
+            identity: userName,
+            wallet: wallet,
+            discovery: { enabled:true, asLocalhost: true }
+        };
+
+        // Connect to gateway using application specified parameters
+        console.log('Connect to Fabric gateway.');
+
+        await gateway.connect(connectionProfile, connectionOptions);
+
+        // Access document network
+        console.log('Use network channel: mychannel.');
+
+        const network = await gateway.getNetwork('mychannel');
+
+        // Get addressability to commercial paper contract
+        console.log('Use Document Contract');
+
+        const contract = await network.getContract('documentContract', '');
+
+        let queryResponse = await contract.submitTransaction('createDocument', 'document1', 'secrete for the final time');
+        //let queryresult = CommercialPaper.fromBuffer(queryResponse);
+        queryResponse = "data = '" + queryResponse.toString().replace(/\\"/g,'') + "'";
+
+        console.log('the query response is ' + queryResponse);
+        //console.log('the query buffer response is ' + queryresult);
+        console.log(' ');
+
+        console.log('Transaction complete.');
+        console.log(' ');
+
+/////////////////////////////////////////////////////
+//obj = JSON.parse(queryResponse);
+//document.getElementById("demo").innerHTML = 
+//console.log(obj.value)
+////////////////////////////////////////////////////
+  
+
+      // query the OWNER of a document
+      
+        console.log('==========================================================================');
+        console.log(' ');
+
+    } catch (error) {
+
+        console.log(`Error processing transaction. ${error}`);
+        console.log(error.stack);
+
+    } finally {
+
+        // Disconnect from the gateway
+        console.log('Disconnect from Fabric gateway.');
+        gateway.disconnect();
+
+    }
+}
+main().then(() => {
+
+    console.log('Query Execution complete.');
+
+}).catch((e) => {
+
+    console.log('Issue program exception.');
+    console.log(e);
+    console.log(e.stack);
+    process.exit(-1);
+
+});
